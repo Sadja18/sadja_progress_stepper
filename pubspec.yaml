@@ -32,7 +32,7 @@ screenshots:
     path: example/screenshots/non-linear-stepper04-step-reset.png
 
   - description: "Linear steps with step reset: 01"
-    path: example/screenshots/non-linear-stepper01.png
+    path: example/screenshots/linear-stepper-with-step-reset01.png
 
   - description: "Linear steps with step reset: 02"
-    path: example/screenshots/non-linear-stepper02.png
+    path: example/screenshots/linear-stepper-with-step-reset02.png
