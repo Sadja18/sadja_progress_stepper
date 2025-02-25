@@ -1,8 +1,9 @@
 name: sadja_progress_stepper
 description: "A customizable and scrollable progress stepper for Flutter applications."
-version: 0.0.1
+version: 0.0.3
 homepage: https://github.com/Sadja18/sadja_progress_stepper.git
 repository: https://github.com/Sadja18/sadja_progress_stepper.git
+issue_tracker: https://github.com/Sadja18/sadja_progress_stepper.git/issues
 
 environment:
   sdk: ">=3.6.1 <4.0.0"
@@ -16,3 +17,22 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+
+screenshots:
+  - description: "Non linear steps: 01"
+    path: example/screenshots/non-linear-stepper01.png
+  
+  - description: "Non linear steps: 02"
+    path: example/screenshots/non-linear-stepper02.png
+
+  - description: "Non linear steps: 03"
+    path: example/screenshots/non-linear-stepper03.png
+
+  - description: "Non linear steps: 04"
+    path: example/screenshots/non-linear-stepper04-step-reset.png
+
+  - description: "Linear steps with step reset: 01"
+    path: example/screenshots/non-linear-stepper01.png
+
+  - description: "Linear steps with step reset: 02"
+    path: example/screenshots/non-linear-stepper02.png

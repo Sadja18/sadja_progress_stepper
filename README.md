@@ -61,6 +61,20 @@ class MyApp extends StatelessWidget {
 
 Check out the full example in the `example/` directory.
 
+## Screenshots
+
+## Screenshots
+
+### Non Linear Stepper  
+![Non Linear Stepper 01](example/screenshots/non-linear-stepper01.png)
+![Non Linear Stepper 02](example/screenshots/non-linear-stepper02.png)
+![Non Linear Stepper 03](example/screenshots/non-linear-stepper03.png)
+![Non Linear Stepper 04](example/screenshots/non-linear-stepper04-step-reset.png)
+
+
+### Linear Stepper with steps reset 
+![Linear Stepper 01](example/screenshots/linear-stepper-with-step-reset01.png)
+![Linear Stepper 02](example/screenshots/linear-stepper-with-step-reset02.png)
 
 ## License
 
