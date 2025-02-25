@@ -1,39 +1,67 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# sadja_progress_stepper
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A customizable and scrollable progress stepper widget for Flutter applications.
 
 ## Features
+- Supports both **linear** (sequential) and **non-linear** (free navigation) modes.
+- Customizable step colors for **active**, **completed**, and **incomplete** steps.
+- Supports **icons** for steps.
+- Scrollable when steps exceed screen width.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Installation
+Add the following to your `pubspec.yaml`:
+```yaml
+dependencies:
+  sadja_progress_stepper: ^1.0.0
+```
 
-## Getting started
+Then, run:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```bash
+flutter pub get
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+import 'package:flutter/material.dart';
+import 'package:sadja_progress_stepper/sadja_progress_stepper.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Progress Stepper Example")),
+        body: SadjaProgressStepper(
+          steps: [
+            StepItem(icon: Icon(Icons.looks_one), content: Text("Step 1")),
+            StepItem(icon: Icon(Icons.looks_two), content: Text("Step 2")),
+            StepItem(icon: Icon(Icons.looks_3), content: Text("Step 3")),
+          ],
+          activeStepColor: Colors.blue,
+          completedStepColor: Colors.green,
+          incompleteStepColor: Colors.grey,
+          completedSteps: [0, 1],
+          onStepTapped: (step) {
+            print("Step $step tapped");
+          },
+        ),
+      ),
+    );
+  }
+}
 ```
 
-## Additional information
+## Example App
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Check out the full example in the `example/` directory.
+
+
+## License
+
+This package is released under the MIT License.
