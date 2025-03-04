@@ -63,8 +63,6 @@ Check out the full example in the `example/` directory.
 
 ## Screenshots
 
-## Screenshots
-
 ### Non Linear Stepper  
 ![Non Linear Stepper 01](example/screenshots/non-linear-stepper01.png)
 ![Non Linear Stepper 02](example/screenshots/non-linear-stepper02.png)
