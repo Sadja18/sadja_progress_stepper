@@ -49,3 +49,7 @@ This update significantly improves the usability and flexibility of the stepper.
 ## 1.0.1
 
 ### Updated Docs.
+
+## 1.0.2
+
+### Issues with previous publication
