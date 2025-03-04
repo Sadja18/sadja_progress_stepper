@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the SadjaProgressStepper class from the sadja_progress_stepper library, for the Dart programming language.">
+  <title>SadjaProgressStepper class - sadja_progress_stepper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">sadja_progress_stepper</a></li>
+    <li><a href="../sadja_progress_stepper/sadja_progress_stepper-library.html">sadja_progress_stepper.dart</a></li>
+    <li class="self-crumb">SadjaProgressStepper class</li>
+  </ol>
+  <div class="self-name">SadjaProgressStepper</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="sadja_progress_stepper&#47;sadja_progress_stepper-library-sidebar.html"
+    data-below-sidebar="sadja_progress_stepper&#47;SadjaProgressStepper-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">SadjaProgressStepper</span> class 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>A customizable stepper widget for Flutter that visually represents progress
+through multiple steps. Supports dynamic colors, icons, text, labels,
+and linear or non-linear navigation.</p>
+<h2 id="features">Features:</h2>
+<ul>
+<li>Customizable step indicators with colors, icons, and text.</li>
+<li>Supports both <strong>linear</strong> (sequential) and <strong>non-linear</strong> (free) navigation.</li>
+<li>Allows horizontal scrolling when steps exceed visible limits.</li>
+<li>Optional step labels with static or dynamic color modes.</li>
+<li>Configurable colors for steps, icons, text, and connecting lines.</li>
+</ul>
+<h2 id="example-usage">Example Usage:</h2>
+<pre class="language-dart"><code class="language-dart">Center(
+  child: SadjaProgressStepper(
+    key: ValueKey(
+      "$_currentStep $_completedSteps",
+      ), // Forces a rebuild when _currentStep changes
+    steps: steps!,
+    currentStep: _currentStep,
+    completedSteps: _completedSteps,
+    activeStepColor: Colors.blue,
+    completedStepColor: Colors.green,
+    incompleteStepColor: Colors.grey,
+    activeIconColor: Colors.white,
+    completedIconColor: Colors.white,
+    incompleteIconColor: Colors.black,
+    activeTextColor: Colors.white,
+    completedTextColor: Colors.white,
+    incompleteTextColor: Colors.black,
+    onStepTapped: _onStepTapped,
+    showLabels: true,
+  ),
+)
+</code></pre>
+<p>This widget is useful for onboarding, progress tracking, multi-step forms,
+and any process requiring step-by-step navigation.</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
+        <li><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>SadjaProgressStepper</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="SadjaProgressStepper" class="callable">
+          <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/SadjaProgressStepper.html">SadjaProgressStepper</a></span><span class="signature">({<span class="parameter" id="-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-steps"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../sadja_progress_stepper/StepItem-class.html">StepItem</a></span>&gt;</span></span> <span class="parameter-name">steps</span>, </span><span class="parameter" id="-param-currentStep"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">currentStep</span> = <span class="default-value">0</span>, </span><span class="parameter" id="-param-completedSteps"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">completedSteps</span>, </span><span class="parameter" id="-param-onStepTapped"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onStepTapped</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span></span>), </span><span class="parameter" id="-param-isLinear"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isLinear</span> = <span class="default-value">true</span>, </span><span class="parameter" id="-param-visibleSteps"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">visibleSteps</span> = <span class="default-value">3</span>, </span><span class="parameter" id="-param-activeStepColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">activeStepColor</span>, </span><span class="parameter" id="-param-completedStepColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">completedStepColor</span>, </span><span class="parameter" id="-param-incompleteStepColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">incompleteStepColor</span>, </span><span class="parameter" id="-param-activeIconColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">activeIconColor</span>, </span><span class="parameter" id="-param-completedIconColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">completedIconColor</span>, </span><span class="parameter" id="-param-incompleteIconColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">incompleteIconColor</span>, </span><span class="parameter" id="-param-activeTextColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">activeTextColor</span>, </span><span class="parameter" id="-param-completedTextColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">completedTextColor</span>, </span><span class="parameter" id="-param-incompleteTextColor"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">incompleteTextColor</span>, </span><span class="parameter" id="-param-activeLineColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span> <span class="parameter-name">activeLineColor</span>, </span><span class="parameter" id="-param-completedLineColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span> <span class="parameter-name">completedLineColor</span>, </span><span class="parameter" id="-param-incompleteLineColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span> <span class="parameter-name">incompleteLineColor</span>, </span><span class="parameter" id="-param-activeLineFollowsCompletedColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">activeLineFollowsCompletedColor</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-showLabels"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showLabels</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-labelColorMode"><span class="type-annotation"><a href="../sadja_progress_stepper/LabelColorMode.html">LabelColorMode</a></span> <span class="parameter-name">labelColorMode</span> = <span class="default-value">LabelColorMode.static</span>, </span><span class="parameter" id="-param-labelStaticColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span> <span class="parameter-name">labelStaticColor</span> = <span class="default-value">Colors.grey</span></span>})</span>
+        </dt>
+        <dd>
+          Constructor for <code>SadjaProgressStepper</code>.
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="activeIconColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/activeIconColor.html">activeIconColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Color of the icon in the active step.
+Active steps only take priority when they are NOT completed.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="activeLineColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/activeLineColor.html">activeLineColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  Color of the line between the current step and the next step.
+Active steps only take priority when they are NOT completed.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="activeLineFollowsCompletedColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/activeLineFollowsCompletedColor.html">activeLineFollowsCompletedColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Whether the active step’s line should match the completed step color.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="activeStepColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/activeStepColor.html">activeStepColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Background color for the active step.
+Active steps only take priority when they are NOT completed.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="activeTextColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/activeTextColor.html">activeTextColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Text color for the active step.
+Active steps only take priority when they are NOT completed.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="completedIconColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/completedIconColor.html">completedIconColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Color of the icon in completed steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="completedLineColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/completedLineColor.html">completedLineColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  Color of the line between completed steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="completedStepColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/completedStepColor.html">completedStepColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Background color for completed steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="completedSteps" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/completedSteps.html">completedSteps</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  List of completed step indices.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="completedTextColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/completedTextColor.html">completedTextColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Text color for completed steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="currentStep" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/currentStep.html">currentStep</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Index of the currently active step.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="incompleteIconColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/incompleteIconColor.html">incompleteIconColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Color of the icon in incomplete steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="incompleteLineColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/incompleteLineColor.html">incompleteLineColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  Color of the line between incomplete steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="incompleteStepColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/incompleteStepColor.html">incompleteStepColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Background color for incomplete steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="incompleteTextColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/incompleteTextColor.html">incompleteTextColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Text color for incomplete steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="isLinear" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/isLinear.html">isLinear</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Determines whether navigation is linear (restricts skipping steps).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="labelColorMode" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/labelColorMode.html">labelColorMode</a></span>
+  <span class="signature">&#8594; <a href="../sadja_progress_stepper/LabelColorMode.html">LabelColorMode</a></span>
+  
+
+</dt>
+<dd>
+  Determines how label colors behave.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="labelStaticColor" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/labelStaticColor.html">labelStaticColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  Static color for labels when <code>labelColorMode</code> is set to <code>LabelColorMode.static</code>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onStepTapped" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/onStepTapped.html">onStepTapped</a></span>
+  <span class="signature">&#8594; dynamic Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span></span>)</span></span>
+  
+
+</dt>
+<dd>
+  Callback function triggered when a step is tapped.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="showLabels" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/showLabels.html">showLabels</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Determines whether labels should be shown below steps.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="steps" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/steps.html">steps</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../sadja_progress_stepper/StepItem-class.html">StepItem</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  List of steps in the stepper.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="visibleSteps" class="property">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/visibleSteps.html">visibleSteps</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  Number of visible steps before scrolling is required.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates a <a href="https://api.flutter.dev/flutter/widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="../sadja_progress_stepper/SadjaProgressStepper/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../sadja_progress_stepper/SadjaProgressStepper-class.html">SadjaProgressStepper</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">sadja_progress_stepper</a></li>
+    <li><a href="../sadja_progress_stepper/sadja_progress_stepper-library.html">sadja_progress_stepper</a></li>
+    <li class="self-crumb">SadjaProgressStepper class</li>
+</ol>
+
+    <h5>sadja_progress_stepper library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    sadja_progress_stepper
+      1.0.3
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

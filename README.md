@@ -12,7 +12,7 @@ A customizable and scrollable progress stepper widget for Flutter applications.
 Add the following to your `pubspec.yaml`:
 ```yaml
 dependencies:
-  sadja_progress_stepper: ^1.0.3
+  sadja_progress_stepper: ^1.0.4
 ```
 
 Then, run:

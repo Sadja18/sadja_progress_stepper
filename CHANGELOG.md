@@ -85,3 +85,7 @@ This update significantly improves the usability and flexibility of the stepper.
     * Icon color (`_getIconColor`)
     * Text color (`_getTextColor`)
     *  Connector line color (`_getLineColor`)
+
+## 1.0.4
+
+## API Docs
