@@ -35,7 +35,7 @@ class _StepWidgetState extends State<StepWidget> {
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
-              
+
               widget.isStepCompleted(
                 widget.stepIndex,
                 false,
@@ -57,7 +57,6 @@ class _StepWidgetState extends State<StepWidget> {
               widget.isStepCompleted(
                 widget.stepIndex,
                 true,
-                
               );
             },
             style: ElevatedButton.styleFrom(

@@ -58,7 +58,6 @@ class StepItem {
       text = null; // Reset text
     }
 
-
     // ✅ Warn the developer if they did not provide an icon or text
     if (text == null && icon == null) {
       debugPrint(

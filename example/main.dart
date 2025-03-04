@@ -82,7 +82,9 @@ class _MyHomePageState extends State<MyHomePage> {
           stepIndex: index,
           isStepCompleted: _toggleStepCompletion,
         ),
-        icon: index%2==0? Icons.check_circle_outline:Icons.list_alt_rounded,
+        icon: index % 2 == 0
+            ? Icons.check_circle_outline
+            : Icons.list_alt_rounded,
         label: "Step $index",
       ),
     );

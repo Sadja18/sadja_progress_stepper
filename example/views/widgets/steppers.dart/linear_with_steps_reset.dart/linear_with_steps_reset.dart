@@ -148,13 +148,13 @@ class _StepperLinearWithStepsResetState
       activeStepColor: Colors.blue,
       completedStepColor: Colors.orange,
       incompleteStepColor: Colors.grey,
-      onStepTapped: (step) => changeCurrentStep(step),// ✅ Handle step tap,
+      onStepTapped: (step) => changeCurrentStep(step), // ✅ Handle step tap,
       activeIconColor: Colors.white,
       completedIconColor: Colors.white,
       incompleteIconColor: Colors.black,
       activeTextColor: Colors.orange,
       completedTextColor: Colors.orange,
-      incompleteTextColor: Colors.black, 
+      incompleteTextColor: Colors.black,
     );
   }
 }

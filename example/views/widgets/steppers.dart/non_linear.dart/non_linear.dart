@@ -17,7 +17,6 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
 
   isStepCompleted(int index, bool isStepCompleted) {
     if (index < 0 || index > 3) {
-    
       return;
     }
 
@@ -34,7 +33,7 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
       return;
     }
 
-    if (!updatedSteps.contains(index)) {  
+    if (!updatedSteps.contains(index)) {
       updatedSteps.add(index);
       updatedSteps.sort();
     }
@@ -49,8 +48,7 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
     });
 
     changeCurrentStep(newCurrentStep);
-
-   }
+  }
 
   @override
   void didChangeDependencies() {
@@ -81,8 +79,7 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
   }
 
   void changeCurrentStep(int stepValue) {
-    if (stepValue < 0 || stepValue > 3) {
-    }
+    if (stepValue < 0 || stepValue > 3) {}
     setState(() {
       _currentStep = stepValue;
     });
@@ -147,7 +144,7 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
       incompleteIconColor: Colors.black,
       activeTextColor: Colors.orange,
       completedTextColor: Colors.orange,
-      incompleteTextColor: Colors.black, 
+      incompleteTextColor: Colors.black,
     );
   }
 }

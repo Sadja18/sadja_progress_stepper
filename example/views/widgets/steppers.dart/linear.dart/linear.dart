@@ -145,7 +145,7 @@ class _StepperLinearState extends State<StepperLinear> {
       incompleteIconColor: Colors.black,
       activeTextColor: Colors.orange,
       completedTextColor: Colors.orange,
-      incompleteTextColor: Colors.black, 
+      incompleteTextColor: Colors.black,
     );
   }
 }

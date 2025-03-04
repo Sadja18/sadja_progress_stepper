@@ -88,4 +88,8 @@ This update significantly improves the usability and flexibility of the stepper.
 
 ## 1.0.4
 
-## API Docs
+### API Docs
+
+## 1.0.5
+
+### Fixed Formatting
