@@ -95,7 +95,7 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
     // _currentStep = 0;
     steps = [
       StepItem(
-        icon: Icon(Icons.list_sharp, color: Colors.white),
+        icon: Icons.looks_one,
         content: StepWidget(
           stepName: "Step 1",
           stepIndex: 0,
@@ -103,7 +103,7 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
         ),
       ),
       StepItem(
-        icon: Icon(Icons.file_upload_sharp, color: Colors.white),
+        icon: Icons.looks_two,
         content: StepWidget(
           stepName: "Step 2",
           stepIndex: 1,
@@ -111,10 +111,18 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
         ),
       ),
       StepItem(
-        icon: Icon(Icons.upload_sharp, color: Colors.white),
+        icon: Icons.looks_3,
         content: StepWidget(
           stepName: "Step 3",
           stepIndex: 2,
+          isStepCompleted: isStepCompleted,
+        ),
+      ),
+      StepItem(
+        icon: Icons.looks_4,
+        content: StepWidget(
+          stepName: "Step 4",
+          stepIndex: 3,
           isStepCompleted: isStepCompleted,
         ),
       ),
@@ -134,6 +142,12 @@ class _StepperNonLinearState extends State<StepperNonLinear> {
       incompleteStepColor: Colors.grey,
       onStepTapped: (step) => changeCurrentStep(step), // ✅ Handle step tap,
       isLinear: false,
+      activeIconColor: Colors.white,
+      completedIconColor: Colors.white,
+      incompleteIconColor: Colors.black,
+      activeTextColor: Colors.orange,
+      completedTextColor: Colors.orange,
+      incompleteTextColor: Colors.black, 
     );
   }
 }

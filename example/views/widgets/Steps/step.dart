@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
+/// This is simply a dummy widget created
+/// to act as a interactive placeholder UI
+/// for content widget in the step item
+
+/// Its independence means you can fully control its UI
 class StepWidget extends StatefulWidget {
   final String stepName;
   final int stepIndex;
+  final bool isLinear;
   final Function(int, bool) isStepCompleted;
 
   const StepWidget({
@@ -10,6 +16,7 @@ class StepWidget extends StatefulWidget {
     required this.stepName,
     required this.stepIndex,
     required this.isStepCompleted,
+    this.isLinear = true,
   });
 
   @override
@@ -28,6 +35,7 @@ class _StepWidgetState extends State<StepWidget> {
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
+              
               widget.isStepCompleted(
                 widget.stepIndex,
                 false,
@@ -49,6 +57,7 @@ class _StepWidgetState extends State<StepWidget> {
               widget.isStepCompleted(
                 widget.stepIndex,
                 true,
+                
               );
             },
             style: ElevatedButton.styleFrom(

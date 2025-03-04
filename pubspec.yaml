@@ -1,6 +1,6 @@
 name: sadja_progress_stepper
 description: "A customizable and scrollable progress stepper for Flutter applications."
-version: 0.0.2
+version: 1.0.0
 homepage: https://github.com/Sadja18/sadja_progress_stepper.git
 repository: https://github.com/Sadja18/sadja_progress_stepper.git
 issue_tracker: https://github.com/Sadja18/sadja_progress_stepper.git/issues

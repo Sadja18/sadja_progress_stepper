@@ -18,7 +18,6 @@ class _StepperLinearState extends State<StepperLinear> {
 
   isStepCompleted(int index, bool isStepCompleted) {
     if (index < 0 || index > 3) {
-    
       return;
     }
 
@@ -29,7 +28,6 @@ class _StepperLinearState extends State<StepperLinear> {
         setState(() {
           _completedSteps = updatedSteps;
         });
-  
       }
       return;
     }
@@ -49,12 +47,11 @@ class _StepperLinearState extends State<StepperLinear> {
     });
 
     changeCurrentStep(newCurrentStep);
- }
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-  
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // ✅ Check if all steps are already completed (e.g., from API or DB)
@@ -95,10 +92,9 @@ class _StepperLinearState extends State<StepperLinear> {
   void initState() {
     super.initState();
 
-    // _currentStep = 0;
     steps = [
       StepItem(
-        icon: Icon(Icons.looks_one, color: Colors.white),
+        icon: Icons.looks_one,
         content: StepWidget(
           stepName: "Step 1",
           stepIndex: 0,
@@ -106,7 +102,7 @@ class _StepperLinearState extends State<StepperLinear> {
         ),
       ),
       StepItem(
-        icon: Icon(Icons.looks_two, color: Colors.white),
+        icon: Icons.looks_two,
         content: StepWidget(
           stepName: "Step 2",
           stepIndex: 1,
@@ -114,10 +110,18 @@ class _StepperLinearState extends State<StepperLinear> {
         ),
       ),
       StepItem(
-        icon: Icon(Icons.looks_3, color: Colors.white),
+        icon: Icons.looks_3,
         content: StepWidget(
           stepName: "Step 3",
           stepIndex: 2,
+          isStepCompleted: isStepCompleted,
+        ),
+      ),
+      StepItem(
+        icon: Icons.looks_4,
+        content: StepWidget(
+          stepName: "Step 4",
+          stepIndex: 3,
           isStepCompleted: isStepCompleted,
         ),
       ),
@@ -127,7 +131,8 @@ class _StepperLinearState extends State<StepperLinear> {
   @override
   Widget build(BuildContext context) {
     return SadjaProgressStepper(
-      key: ValueKey("$_currentStep $_completedSteps"), // Forces a rebuild when _currentStep changes
+      key: ValueKey(
+          "$_currentStep $_completedSteps"), // Forces a rebuild when _currentStep changes
       steps: steps,
       currentStep: _currentStep, // Optional, default is 0
       completedSteps: _completedSteps,
@@ -135,6 +140,12 @@ class _StepperLinearState extends State<StepperLinear> {
       completedStepColor: Colors.orange,
       incompleteStepColor: Colors.grey,
       onStepTapped: (step) => changeCurrentStep(step), // ✅ Handle step tap,
+      activeIconColor: Colors.white,
+      completedIconColor: Colors.white,
+      incompleteIconColor: Colors.black,
+      activeTextColor: Colors.orange,
+      completedTextColor: Colors.orange,
+      incompleteTextColor: Colors.black, 
     );
   }
 }

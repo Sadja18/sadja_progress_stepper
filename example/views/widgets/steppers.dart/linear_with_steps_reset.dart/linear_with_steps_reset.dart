@@ -4,7 +4,6 @@ import 'package:sadja_progress_stepper/sadja_progress_stepper.dart';
 
 import '../../Steps/step.dart';
 
-
 class StepperLinearWithStepsReset extends StatefulWidget {
   const StepperLinearWithStepsReset({super.key});
 
@@ -22,7 +21,6 @@ class _StepperLinearWithStepsResetState
 
   isStepCompleted(int index, bool isStepCompleted) {
     if (index < 0 || index > steps.length - 1) {
-    
       return;
     }
 
@@ -38,7 +36,6 @@ class _StepperLinearWithStepsResetState
         setState(() {
           _completedSteps = updatedSteps;
         });
-        
       }
       return;
     }
@@ -58,13 +55,12 @@ class _StepperLinearWithStepsResetState
     });
 
     changeCurrentStep(newCurrentStep);
-
-      }
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-  
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // ✅ Check if all steps are already completed (e.g., from API or DB)
       if (_completedSteps.length == steps.length) {
@@ -91,7 +87,7 @@ class _StepperLinearWithStepsResetState
 
   void changeCurrentStep(int stepValue) {
     if (stepValue < 0 || stepValue > steps.length - 1) {
-      if(kDebugMode){
+      if (kDebugMode) {
         print("Step value out of bounds");
       }
     }
@@ -107,10 +103,7 @@ class _StepperLinearWithStepsResetState
     // _currentStep = 0;
     steps = [
       StepItem(
-        icon: Icon(
-          Icons.looks_one,
-          color: Colors.white,
-        ),
+        icon: Icons.looks_one,
         content: StepWidget(
           stepName: "Step 1",
           stepIndex: 0,
@@ -118,10 +111,7 @@ class _StepperLinearWithStepsResetState
         ),
       ),
       StepItem(
-        icon: Icon(
-          Icons.looks_two,
-          color: Colors.white,
-        ),
+        icon: Icons.looks_two,
         content: StepWidget(
           stepName: "Step 2",
           stepIndex: 1,
@@ -129,10 +119,7 @@ class _StepperLinearWithStepsResetState
         ),
       ),
       StepItem(
-        icon: Icon(
-          Icons.looks_3,
-          color: Colors.white,
-        ),
+        icon: Icons.looks_3,
         content: StepWidget(
           stepName: "Step 3",
           stepIndex: 2,
@@ -140,10 +127,7 @@ class _StepperLinearWithStepsResetState
         ),
       ),
       StepItem(
-        icon: Icon(
-          Icons.looks_4,
-          color: Colors.white,
-        ),
+        icon: Icons.looks_4,
         content: StepWidget(
           stepName: "Step 4",
           stepIndex: 3,
@@ -164,7 +148,13 @@ class _StepperLinearWithStepsResetState
       activeStepColor: Colors.blue,
       completedStepColor: Colors.orange,
       incompleteStepColor: Colors.grey,
-      onStepTapped: (step) => changeCurrentStep(step), // ✅ Handle step tap,
+      onStepTapped: (step) => changeCurrentStep(step),// ✅ Handle step tap,
+      activeIconColor: Colors.white,
+      completedIconColor: Colors.white,
+      incompleteIconColor: Colors.black,
+      activeTextColor: Colors.orange,
+      completedTextColor: Colors.orange,
+      incompleteTextColor: Colors.black, 
     );
   }
 }
