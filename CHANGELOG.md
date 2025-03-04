@@ -45,3 +45,7 @@ This release introduces significant improvements, new features, and better custo
   - Now supports both icons and text inside step indicators.  
 
 This update significantly improves the usability and flexibility of the stepper. 🚀  
+
+## 1.0.1
+
+### Updated Docs.
