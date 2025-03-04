@@ -62,6 +62,7 @@ class SadjaProgressStepper extends StatefulWidget {
   // --- Step Indicator Customization ---
 
   /// Background color for the active step.
+  /// Active steps only take priority when they are NOT completed.
   final Color activeStepColor;
 
   /// Background color for completed steps.
@@ -73,6 +74,7 @@ class SadjaProgressStepper extends StatefulWidget {
   // --- Icon & Text Colors ---
 
   /// Color of the icon in the active step.
+  /// Active steps only take priority when they are NOT completed.
   final Color activeIconColor;
 
   /// Color of the icon in completed steps.
@@ -82,6 +84,7 @@ class SadjaProgressStepper extends StatefulWidget {
   final Color incompleteIconColor;
 
   /// Text color for the active step.
+  /// Active steps only take priority when they are NOT completed.
   final Color activeTextColor;
 
   /// Text color for completed steps.
@@ -93,6 +96,7 @@ class SadjaProgressStepper extends StatefulWidget {
   // --- Line Customization ---
 
   /// Color of the line between the current step and the next step.
+  /// Active steps only take priority when they are NOT completed.
   final Color? activeLineColor;
 
   /// Color of the line between completed steps.
@@ -181,10 +185,57 @@ enum LabelColorMode { static, dynamic }
 class _SadjaProgressStepperState extends State<SadjaProgressStepper> {
   late int _currentStep;
 
+  final ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
+
+    // Initialize the current step with the provided widget value
     _currentStep = widget.currentStep;
+
+    // Ensure scrolling is adjusted after the first frame is rendered
+    WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToCurrentStep());
+  }
+
+  /// Scrolls the stepper to ensure the current step is visible.
+  ///
+  /// This function calculates the required scroll offset based on the number
+  /// of visible steps, dynamically adjusts the line width between steps, and
+  /// smoothly scrolls to bring the current step into view if needed.
+  void _scrollToCurrentStep() {
+    // Ensure the widget is still mounted before proceeding
+    if (!mounted) return;
+
+    // Get the constraints of the widget to determine its width
+    final constraints = context.findRenderObject() as RenderBox?;
+    if (constraints == null) return;
+
+    // Determine the total width available for the stepper
+    double stepperWidth =
+        constraints.size.width * 0.9; // 90% of available width
+    double stepWidth = 60; // Fixed width for each step
+    int numVisibleSteps =
+        widget.visibleSteps; // Number of steps visible at once
+
+    // Calculate the dynamic width of the lines connecting the steps
+    double totalStepWidth = stepWidth * numVisibleSteps;
+    double remainingWidth = stepperWidth - totalStepWidth;
+    double lineWidth = remainingWidth / (numVisibleSteps - 1);
+
+    // Determine if scrolling is needed when the current step is beyond the visible range
+    if (widget.currentStep >= numVisibleSteps - 1) {
+      // Compute the scroll offset to bring the current step into view
+      double offset = (stepWidth + lineWidth) *
+          (widget.currentStep - (numVisibleSteps - 1));
+
+      // Smoothly animate scrolling to the calculated offset
+      _scrollController.animateTo(
+        offset,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 
   /// Determines the background color of the step based on its state
@@ -192,11 +243,12 @@ class _SadjaProgressStepperState extends State<SadjaProgressStepper> {
   /// - Active step: Uses `activeStepColor`
   /// - Completed steps: Uses `completedStepColor`
   /// - Incomplete steps: Uses `incompleteStepColor`
+  /// if a step is completed, it keeps its completed color even when active.
   Color _getStepColor(int index) {
-    if (index == _currentStep) {
+    if (widget.completedSteps.contains(index)) {
+      return widget.completedStepColor; // Completed steps always take priority
+    } else if (index == _currentStep) {
       return widget.activeStepColor;
-    } else if (widget.completedSteps.contains(index)) {
-      return widget.completedStepColor;
     } else {
       return widget.incompleteStepColor;
     }
@@ -208,10 +260,10 @@ class _SadjaProgressStepperState extends State<SadjaProgressStepper> {
   /// - Completed steps: Uses `completedIconColor`
   /// - Incomplete steps: Uses `incompleteIconColor`
   Color _getIconColor(int index) {
-    if (index == _currentStep) {
+    if (widget.completedSteps.contains(index)) {
+      return widget.completedIconColor; // Completed steps always take priority
+    } else if (index == _currentStep) {
       return widget.activeIconColor;
-    } else if (widget.completedSteps.contains(index)) {
-      return widget.completedIconColor;
     } else {
       return widget.incompleteIconColor;
     }
@@ -223,10 +275,10 @@ class _SadjaProgressStepperState extends State<SadjaProgressStepper> {
   /// - Completed steps: Uses `completedTextColor`
   /// - Incomplete steps: Uses `incompleteTextColor`
   Color _getTextColor(int index) {
-    if (index == _currentStep) {
+    if (widget.completedSteps.contains(index)) {
+      return widget.completedTextColor; // Completed steps always take priority
+    } else if (index == _currentStep) {
       return widget.activeTextColor;
-    } else if (widget.completedSteps.contains(index)) {
-      return widget.completedTextColor;
     } else {
       return widget.incompleteTextColor;
     }
@@ -236,14 +288,16 @@ class _SadjaProgressStepperState extends State<SadjaProgressStepper> {
   /// - If one of the steps is the current step, uses `activeLineColor` (or defaults to `completedStepColor`).
   /// - If both steps are completed, uses `completedLineColor` (or defaults to `completedStepColor`).
   /// - Otherwise, uses `incompleteLineColor` (or defaults to `incompleteStepColor`).
+  ///  Lines between two completed steps will always be marked as completed.
   Color _getLineColor(int prevStep, int nextStep) {
     bool isPrevCompleted = widget.completedSteps.contains(prevStep);
     bool isNextCompleted = widget.completedSteps.contains(nextStep);
 
-    if (prevStep == _currentStep || nextStep == _currentStep) {
+    if (isPrevCompleted && isNextCompleted) {
+      return widget.completedLineColor ??
+          widget.completedStepColor; // Completed steps take priority
+    } else if (prevStep == _currentStep || nextStep == _currentStep) {
       return widget.activeLineColor ?? widget.completedStepColor;
-    } else if (isPrevCompleted && isNextCompleted) {
-      return widget.completedLineColor ?? widget.completedStepColor;
     } else {
       return widget.incompleteLineColor ?? widget.incompleteStepColor;
     }
@@ -309,8 +363,6 @@ class _SadjaProgressStepperState extends State<SadjaProgressStepper> {
   /// - Uses `SingleChildScrollView` to allow scrolling if the steps exceed the visible limit.
   /// - Calculates dynamic spacing for steps and lines based on available width.
   Widget _buildScrollableStepper() {
-    debugPrint(
-        "Scroll Min required width ${(50 * widget.visibleSteps) + (100 * (widget.visibleSteps - 1))}");
     return LayoutBuilder(
       builder: (context, constraints) {
         double stepperWidth =
@@ -326,6 +378,7 @@ class _SadjaProgressStepperState extends State<SadjaProgressStepper> {
         return SizedBox(
           width: stepperWidth,
           child: SingleChildScrollView(
+            controller: _scrollController,
             scrollDirection: Axis.horizontal,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -335,16 +388,22 @@ class _SadjaProgressStepperState extends State<SadjaProgressStepper> {
                 (index) {
                   if (index.isEven) {
                     int stepIndex = index ~/ 2;
-                    return SizedBox(
+                    return Container(
+                      margin: EdgeInsets.only(
+                        top: 15,
+                      ),
                       width: stepWidth,
                       child: _buildStepIndicator(stepIndex),
                     );
                   } else {
-                    return Container(
-                      width: lineWidth > 0 ? lineWidth : 10,
-                      height: 4, // Keep line thickness
-                      color: _getLineColor(
-                          (index - 1) ~/ 2, (index + 1) ~/ 2), // Set line color
+                    return Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        width: lineWidth > 0 ? lineWidth : 10,
+                        height: 4,
+                        color:
+                            _getLineColor((index - 1) ~/ 2, (index + 1) ~/ 2),
+                      ),
                     );
                   }
                 },
