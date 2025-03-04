@@ -53,3 +53,35 @@ This update significantly improves the usability and flexibility of the stepper.
 ## 1.0.2
 
 ### Issues with previous publication
+
+## 1.0.3
+
+### Enhancements
+
+#### Improved Scrolling Behavior
+
+* The stepper now automatically scrolls to ensure the `current step remains visible`.
+
+* If the selected step exceeds the number of visible steps, the `first step scrolls out of view` to maintain focus on the latest step.
+
+* `Smooth animation (30ms, ease-in-out)` added for a better user experience.
+
+#### Dynamic Line Width Calculation
+
+* The width of lines between steps is now dynamically computed based on `available space`.
+
+* This prevents layout issues when steps don't fit perfectly within the stepper's width.
+
+#### Fixes & Improvements
+
+* `Fixed Color Priority` for `Steps`, `Icons`, and `Lines`
+
+  * `Completed steps now always take priority over` active steps.
+
+  * If a step is marked as completed, it will retain its `completed color`, even if it is the current step.
+
+  * Applied this behavior to:
+    * Step circle color (`_getStepColor`)
+    * Icon color (`_getIconColor`)
+    * Text color (`_getTextColor`)
+    *  Connector line color (`_getLineColor`)
